@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FORM PENDAFTARAN SOEKARNO RUN 2026</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:linear-gradient(180deg,#d90429,#8d0018);padding:20px;color:#fff}
+.wrap{max-width:900px;margin:auto}
+.card{background:#fff;color:#222;border-radius:24px;padding:25px}
+h1{text-align:center;margin-bottom:20px}
+label{display:block;margin-top:12px;font-weight:bold}
+input,select,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{margin-top:20px;width:100%;padding:15px;border:none;border-radius:12px;background:#d90429;color:#fff;font-weight:bold;cursor:pointer}
+#kolektif{display:none}
+.peserta{margin-top:15px;padding:15px;border:1px solid #ddd;border-radius:12px}
+#loader{display:none;position:fixed;inset:0;background:#000d;color:#fff;justify-content:center;align-items:center;flex-direction:column}
+.spin{width:90px;height:90px;border:8px solid #ffffff33;border-top:8px solid #fff;border-radius:50%;animation:r 1s linear infinite}
+@keyframes r{100%{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div id="loader">
+<div class="spin"></div>
+<h2 style="margin-top:20px">Memverifikasi Pendaftaran...</h2>
+<p id="hitung">10</p>
+</div>
+
+<div class="wrap">
+<h1>SOEKARNO RUN 2026</h1>
+
+<div class="card">
+<label>Nama Lengkap</label><input>
+<label>NIK / Kartu Pelajar</label><input>
+
+<div class="grid">
+<div>
+<label>Tanggal Lahir</label><input type="date">
+</div>
+<div>
+<label>Jenis Kelamin</label>
+<select><option>Laki-Laki</option><option>Perempuan</option></select>
+</div>
+</div>
+
+<label>WhatsApp</label><input>
+<label>Email</label><input>
+<label>Kota / Kabupaten</label><input>
+<label>Alamat Lengkap</label><textarea></textarea>
+
+<label>Size Jersey</label>
+<select>
+<option>XS</option><option>S</option><option>M</option>
+<option>L</option><option>XL</option><option>XXL</option><option>3XL</option>
+</select>
+
+<label>Nama BIB (Opsional)</label><input>
+<label>Komunitas (Opsional)</label><input>
+
+<label>Kontak Darurat</label><input>
+<label>Nomor Kontak Darurat</label><input>
+
+<label>Kategori</label>
+<select id="kategori" onchange="cekKategori()">
+<option value="individual">Individual - Rp100.000</option>
+<option value="kolektif">Kolektif 5 Orang - Rp430.000</option>
+</select>
+
+<div id="kolektif">
+<h3 style="margin-top:15px">Data Peserta Kolektif</h3>
+
+<div class="peserta">Peserta 2<input placeholder="Nama Peserta 2"></div>
+<div class="peserta">Peserta 3<input placeholder="Nama Peserta 3"></div>
+<div class="peserta">Peserta 4<input placeholder="Nama Peserta 4"></div>
+<div class="peserta">Peserta 5<input placeholder="Nama Peserta 5"></div>
+</div>
+
+<h3 style="margin-top:20px">Pembayaran</h3>
+<p>Simpan QRIS sebagai <b>qris.png</b> dalam folder yang sama.</p>
+<img src="qris.png" style="max-width:280px;width:100%;border:1px solid #ccc;border-radius:12px">
+
+<label>Upload Bukti Pembayaran</label>
+<input type="file">
+
+<label style="margin-top:15px">
+<input type="checkbox" style="width:auto"> Saya menyatakan data yang saya isi benar.
+</label>
+
+<button class="btn" onclick="kirim()">KIRIM PENDAFTARAN</button>
+
+</div>
+</div>
+
+<script>
+function cekKategori(){
+document.getElementById('kolektif').style.display=
+document.getElementById('kategori').value==='kolektif'?'block':'none';
+}
+
+function kirim(){
+document.getElementById('loader').style.display='flex';
+let s=10;
+hitung.innerText=s;
+let t=setInterval(()=>{
+s--;
+hitung.innerText=s;
+if(s<=0){
+clearInterval(t);
+location.href='https://onlinetiketdigital.github.io/PEMBAYARAN-SUKSES-/';
+}
+},1000);
+}
+</script>
+</body>
+</html>

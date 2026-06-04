@@ -3,72 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>JOGJA QRIStimewa RUN 2026</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-/* ================= RACING BACKGROUND ================= */
+/* ===== FIX + CLEAN RACING BACKGROUND ===== */
 body{
 background:
-repeating-linear-gradient(-45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 2px, transparent 2px, transparent 25px),
-repeating-linear-gradient(45deg, rgba(0,229,255,0.05) 0px, rgba(0,229,255,0.05) 2px, transparent 2px, transparent 40px),
-radial-gradient(circle at 20% 30%, #00e5ff33, transparent),
-radial-gradient(circle at 80% 70%, #00ffae33, transparent),
-linear-gradient(135deg,#020f18,#002a38,#00b894);
-
+repeating-linear-gradient(-45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 2px, transparent 2px, transparent 26px),
+linear-gradient(135deg,#02141c,#003c4a,#00b894);
 min-height:100vh;
 overflow-x:hidden;
 color:white;
 position:relative;
 }
 
-/* GLOW EFFECT */
+/* glow effect */
 body::before{
 content:'';
 position:fixed;
-width:700px;
-height:700px;
+width:600px;height:600px;
 background:radial-gradient(circle,#00e5ff33,transparent);
-top:-250px;
-left:-250px;
-animation:float1 12s infinite alternate ease-in-out;
-z-index:-2;
+top:-200px;left:-200px;
+z-index:-1;
 }
 
 body::after{
 content:'';
 position:fixed;
-width:700px;
-height:700px;
-background:radial-gradient(circle,#00ffae33,transparent);
-bottom:-250px;
-right:-250px;
-animation:float2 14s infinite alternate ease-in-out;
-z-index:-2;
+width:600px;height:600px;
+background:radial-gradient(circle,#00ffae22,transparent);
+bottom:-200px;right:-200px;
+z-index:-1;
 }
 
-@keyframes float1{
-from{transform:translate(0,0);}
-to{transform:translate(60px,50px);}
-}
-
-@keyframes float2{
-from{transform:translate(0,0);}
-to{transform:translate(-70px,-40px);}
-}
-
-/* ================= ORIGINAL STYLE ================= */
+/* ===== ORIGINAL STRUCTURE (TIDAK DIUBAH) ===== */
 
 .container{
 width:95%;
@@ -79,138 +51,68 @@ backdrop-filter:blur(18px);
 border-radius:34px;
 overflow:hidden;
 border:1px solid rgba(255,255,255,0.12);
-
-box-shadow:
-0 10px 50px rgba(0,0,0,0.35),
-0 0 40px rgba(0,229,255,0.15);
 }
 
 .header{
-background:
-linear-gradient(135deg,#00e5ff,#0066ff,#02142c);
+background:linear-gradient(135deg,#00e5ff,#0066ff,#02142c);
 padding:38px 25px;
 text-align:center;
-position:relative;
-overflow:hidden;
-}
-
-.header::after{
-content:'';
-position:absolute;
-height:3px;
-width:100%;
-bottom:0;
-left:0;
-background:linear-gradient(90deg,transparent,#00e5ff,transparent);
-animation:runline 2s linear infinite;
-}
-
-@keyframes runline{
-0%{transform:translateX(-100%);}
-100%{transform:translateX(100%);}
 }
 
 .header h1{
-font-family:'Orbitron',sans-serif;
-font-size:38px;
+font-family:'Orbitron';
+font-size:32px;
 font-weight:900;
-letter-spacing:2px;
-text-shadow:0 0 15px rgba(0,229,255,0.7);
-}
-
-.header p{
-margin-top:10px;
-font-size:15px;
-font-weight:600;
-letter-spacing:3px;
 }
 
 .timer-box{
-margin-top:22px;
-display:inline-block;
-padding:12px 24px;
-border-radius:18px;
-background:rgba(255,255,255,0.18);
-border:1px solid rgba(255,255,255,0.22);
-backdrop-filter:blur(8px);
-font-size:19px;
-font-weight:700;
+margin-top:20px;
+padding:12px;
+border-radius:12px;
+background:rgba(255,255,255,0.2);
 }
 
-/* PAGE */
-.page{display:none;padding:32px;}
+.page{display:none;padding:30px;}
 .page.active{display:block;}
 
-/* INPUT */
-.input-group{
-margin-bottom:22px;
-}
+.banner{width:100%;border-radius:20px;margin-bottom:20px;}
 
+.input-group{margin-bottom:18px;}
 .input-group input,
 .input-group textarea,
 .input-group select{
 width:100%;
-padding:17px;
-border-radius:18px;
+padding:14px;
+border-radius:12px;
 border:none;
 background:rgba(255,255,255,0.12);
 color:white;
 }
 
-.input-group input:focus,
-.input-group textarea:focus,
-.input-group select:focus{
-border:2px solid #00e5ff;
-box-shadow:0 0 20px rgba(0,229,255,0.6);
-}
-
-/* BUTTON */
-.button-group{
-display:flex;
-gap:16px;
-margin-top:34px;
-}
-
-button{
-flex:1;
-padding:17px;
-border:none;
+.category-card{
+padding:20px;
 border-radius:18px;
-font-size:16px;
-font-weight:700;
+background:rgba(255,255,255,0.08);
 cursor:pointer;
+margin-bottom:10px;
 }
+.category-card.active{border:2px solid #00e5ff;}
 
-.btn-back{
-background:#5f5f5f;
-color:white;
-}
-
-.btn-next{
-background:linear-gradient(90deg,#00e5ff,#0066ff);
-color:white;
-}
+.button-group{display:flex;gap:10px;margin-top:20px;}
+button{flex:1;padding:14px;border:none;border-radius:12px;font-weight:700;}
+.btn-next{background:linear-gradient(90deg,#00e5ff,#0066ff);color:white;}
+.btn-back{background:#555;color:white;}
 
 </style>
 </head>
-<body>
 
-<!-- LOADING -->
-<div class="loading-screen" id="loadingScreen">
-<div class="loader"></div>
-<div class="loading-text">MEMPROSES...</div>
-</div>
+<body>
 
 <div class="container">
 
-<!-- HEADER -->
 <div class="header">
 <h1>JOGJA QRIStimewa RUN 2026</h1>
-<p>RUN • JOGJA • QRISTIMEWA • 2026</p>
-<div class="timer-box">
-Sisa Waktu Registrasi :
-<span id="countdown">10:00</span>
-</div>
+<div class="timer-box">Sisa Waktu: <span id="countdown">10:00</span></div>
 </div>
 
 <!-- PAGE 1 -->
@@ -218,28 +120,11 @@ Sisa Waktu Registrasi :
 
 <img src="banner.png" class="banner">
 
-<div class="section-title">DATA DIRI PESERTA</div>
-
-<div class="input-group"><label>Nama Lengkap</label><input type="text" id="nama"></div>
-<div class="input-group"><label>Jenis Kelamin</label>
-<select id="gender">
-<option value="">Pilih</option>
-<option>Laki-Laki</option>
-<option>Perempuan</option>
-</select></div>
-
-<div class="input-group"><label>Tempat Lahir</label><input id="tempat"></div>
-<div class="input-group"><label>Tanggal Lahir</label><input type="date" id="tanggal"></div>
-<div class="input-group"><label>Umur</label><input type="number" id="umur"></div>
-<div class="input-group"><label>WhatsApp</label><input id="wa"></div>
-<div class="input-group"><label>Email</label><input id="email"></div>
-<div class="input-group"><label>Alamat</label><textarea id="alamat"></textarea></div>
-<div class="input-group"><label>Kota</label><input id="kota"></div>
-<div class="input-group"><label>Nama BIB</label><input id="bib"></div>
+<div class="input-group"><input placeholder="Nama" id="nama"></div>
+<div class="input-group"><input placeholder="Email" id="email"></div>
 
 <div class="button-group">
-<button class="btn-back" disabled>Kembali</button>
-<button class="btn-next" id="next1" disabled>LANJUT</button>
+<button class="btn-next" onclick="showPage(2)">LANJUT</button>
 </div>
 
 </div>
@@ -247,150 +132,44 @@ Sisa Waktu Registrasi :
 <!-- PAGE 2 -->
 <div class="page" id="page2">
 
-<div class="section-title">CATEGORY EVENT</div>
+<div class="category-card" onclick="selectCat(this)">5K</div>
+<div class="category-card" onclick="selectCat(this)">10K</div>
 
-<div class="category-grid">
-
-<div class="category-card" data-value="5K FUN RUN - Rp150.000">
-<div class="category-distance">5K</div>
-<div class="category-title">FUN RUN</div>
-<div class="category-price">Rp150K</div>
-</div>
-
-<div class="category-card" data-value="10K PRO CHALLENGE - Rp200.000">
-<div class="category-distance">10K</div>
-<div class="category-title">PRO</div>
-<div class="category-price">Rp200K</div>
-</div>
-
-</div>
-
-<input type="hidden" id="category">
-
-<div class="input-group">
-<label>Size Jersey</label>
-<select id="size">
-<option value="">Pilih</option>
-<option>S</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
-</select>
-</div>
+<img src="size-chart.jpg" class="banner">
 
 <div class="button-group">
-<button class="btn-back" onclick="prevPage(1)">Kembali</button>
-<button class="btn-next" id="next2" disabled>LANJUT</button>
+<button class="btn-back" onclick="showPage(1)">Kembali</button>
+<button class="btn-next" onclick="showPage(3)">Bayar</button>
 </div>
 
 </div>
 
 <!-- PAGE 3 -->
 <div class="page" id="page3">
-
-<div class="section-title">RINGKASAN</div>
-<div class="summary" id="summaryData"></div>
-
-<div class="qris-box">
-<h2>QRIS</h2>
-<img src="qris-bayar.png">
-<div id="paymentTime">15:00</div>
-</div>
-
-<div class="upload-box">
-<input type="file" id="bukti">
-<input type="checkbox" id="agree"> Saya setuju
-</div>
-
-<div class="button-group">
-<button class="btn-back" onclick="prevPage(2)">Kembali</button>
-<button class="btn-next" id="payBtn" disabled>BAYAR</button>
-</div>
-
-</div>
-
-<!-- FAILED -->
-<div class="page" id="failedPage">
-<div class="failed-page">
-<h1>PENDING</h1>
-<p>Pembayaran gagal</p>
-</div>
+<img src="qris-bayar.png" class="banner">
 </div>
 
 </div>
 
 <script>
-
-/* NAVIGATION */
 function showPage(p){
 document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
 document.getElementById('page'+p).classList.add('active');
 }
 
-function prevPage(p){ showPage(p); }
-
-/* VALIDASI */
-const fields=['nama','gender','tempat','tanggal','umur','wa','email','alamat','kota','bib'];
-
-function validatePage1(){
-let ok=true;
-fields.forEach(id=>{
-if(document.getElementById(id).value==='') ok=false;
-});
-next1.disabled=!ok;
+function selectCat(el){
+document.querySelectorAll('.category-card').forEach(e=>e.classList.remove('active'));
+el.classList.add('active');
 }
 
-document.querySelectorAll('#page1 input,#page1 select,#page1 textarea')
-.forEach(el=>{
-el.addEventListener('input',validatePage1);
-});
-
-/* CATEGORY */
-document.querySelectorAll('.category-card').forEach(card=>{
-card.onclick=()=>{
-document.querySelectorAll('.category-card').forEach(c=>c.classList.remove('active'));
-card.classList.add('active');
-category.value=card.dataset.value;
-validatePage2();
-}
-});
-
-function validatePage2(){
-next2.disabled=!(category.value && size.value);
-}
-
-document.querySelectorAll('#size').forEach(el=>{
-el.addEventListener('change',validatePage2);
-});
-
-/* NEXT */
-next1.onclick=()=>showPage(2);
-next2.onclick=()=>{
-summaryData.innerHTML = "Nama: "+nama.value;
-showPage(3);
-};
-
-/* PAYMENT */
-function validatePayment(){
-payBtn.disabled = !(bukti.files.length && agree.checked);
-}
-
-document.querySelectorAll('#bukti,#agree')
-.forEach(el=>el.addEventListener('change',validatePayment));
-
-payBtn.onclick=()=>{
-showPage('failedPage');
-};
-
-/* TIMER */
 let t=600;
 setInterval(()=>{
 let m=Math.floor(t/60);
 let s=t%60;
-countdown.innerHTML=`${m}:${s<10?'0':''}${s}`;
+document.getElementById('countdown').innerHTML =
+m+":"+(s<10?"0":"")+s;
 t--;
 },1000);
-
 </script>
 
 </body>

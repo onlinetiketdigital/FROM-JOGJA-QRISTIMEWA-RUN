@@ -6,10 +6,11 @@
 
 <title>JOGJA QRIStimewa RUN 2026</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+/* RESET */
 *{
 margin:0;
 padding:0;
@@ -17,81 +18,140 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
-/* ===== THEME EVENT SPORT ===== */
-
+/* ================= RACING BACKGROUND ================= */
 body{
 background:
-radial-gradient(circle at 20% 30%, #00e5ff22, transparent),
-radial-gradient(circle at 80% 70%, #00ffae22, transparent),
-linear-gradient(135deg,#02141c,#003b4a,#00b894);
+repeating-linear-gradient(-45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 2px, transparent 2px, transparent 25px),
+repeating-linear-gradient(45deg, rgba(0,229,255,0.05) 0px, rgba(0,229,255,0.05) 2px, transparent 2px, transparent 40px),
+radial-gradient(circle at 20% 30%, #00e5ff33, transparent),
+radial-gradient(circle at 80% 70%, #00ffae33, transparent),
+linear-gradient(135deg,#020f18,#002a38,#00b894);
 
 min-height:100vh;
-color:white;
 overflow-x:hidden;
+color:white;
+position:relative;
 }
 
-/* ===== CONTAINER ===== */
+/* GLOW EFFECT */
+body::before{
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#00e5ff33,transparent);
+top:-250px;
+left:-250px;
+animation:float1 12s infinite alternate ease-in-out;
+z-index:-2;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#00ffae33,transparent);
+bottom:-250px;
+right:-250px;
+animation:float2 14s infinite alternate ease-in-out;
+z-index:-2;
+}
+
+@keyframes float1{
+from{transform:translate(0,0);}
+to{transform:translate(60px,50px);}
+}
+
+@keyframes float2{
+from{transform:translate(0,0);}
+to{transform:translate(-70px,-40px);}
+}
+
+/* ================= ORIGINAL STYLE ================= */
 
 .container{
 width:95%;
 max-width:960px;
 margin:25px auto;
-background:rgba(255,255,255,0.07);
+background:rgba(255,255,255,0.08);
 backdrop-filter:blur(18px);
-border-radius:28px;
-border:1px solid rgba(255,255,255,0.15);
-box-shadow:0 10px 40px rgba(0,0,0,0.4);
+border-radius:34px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.12);
+
+box-shadow:
+0 10px 50px rgba(0,0,0,0.35),
+0 0 40px rgba(0,229,255,0.15);
 }
 
-/* ===== HEADER ===== */
-
 .header{
-background:linear-gradient(135deg,#00e5ff,#0077ff,#001f3f);
-padding:35px;
+background:
+linear-gradient(135deg,#00e5ff,#0066ff,#02142c);
+padding:38px 25px;
 text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.header::after{
+content:'';
+position:absolute;
+height:3px;
+width:100%;
+bottom:0;
+left:0;
+background:linear-gradient(90deg,transparent,#00e5ff,transparent);
+animation:runline 2s linear infinite;
+}
+
+@keyframes runline{
+0%{transform:translateX(-100%);}
+100%{transform:translateX(100%);}
 }
 
 .header h1{
-font-family:'Orbitron';
-font-size:32px;
+font-family:'Orbitron',sans-serif;
+font-size:38px;
+font-weight:900;
+letter-spacing:2px;
+text-shadow:0 0 15px rgba(0,229,255,0.7);
+}
+
+.header p{
+margin-top:10px;
+font-size:15px;
+font-weight:600;
+letter-spacing:3px;
 }
 
 .timer-box{
-margin-top:15px;
-padding:10px;
-background:rgba(255,255,255,0.2);
-border-radius:12px;
+margin-top:22px;
+display:inline-block;
+padding:12px 24px;
+border-radius:18px;
+background:rgba(255,255,255,0.18);
+border:1px solid rgba(255,255,255,0.22);
+backdrop-filter:blur(8px);
+font-size:19px;
+font-weight:700;
 }
 
-/* ===== PAGE ===== */
+/* PAGE */
+.page{display:none;padding:32px;}
+.page.active{display:block;}
 
-.page{
-display:none;
-padding:28px;
-}
-
-.page.active{
-display:block;
-}
-
-/* ===== INPUT ===== */
-
+/* INPUT */
 .input-group{
-margin-bottom:18px;
-}
-
-.input-group label{
-display:block;
-margin-bottom:6px;
-font-weight:600;
+margin-bottom:22px;
 }
 
 .input-group input,
 .input-group textarea,
 .input-group select{
 width:100%;
-padding:14px;
-border-radius:12px;
+padding:17px;
+border-radius:18px;
 border:none;
 background:rgba(255,255,255,0.12);
 color:white;
@@ -100,100 +160,77 @@ color:white;
 .input-group input:focus,
 .input-group textarea:focus,
 .input-group select:focus{
-outline:none;
-border:1px solid #00e5ff;
-}
-
-/* ===== CATEGORY ===== */
-
-.category-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-}
-
-.category-card{
-padding:20px;
-border-radius:16px;
-background:rgba(255,255,255,0.08);
-cursor:pointer;
-}
-
-.category-card.active{
 border:2px solid #00e5ff;
+box-shadow:0 0 20px rgba(0,229,255,0.6);
 }
 
-/* ===== BUTTON ===== */
-
+/* BUTTON */
 .button-group{
 display:flex;
-gap:10px;
-margin-top:20px;
+gap:16px;
+margin-top:34px;
 }
 
 button{
 flex:1;
-padding:14px;
+padding:17px;
 border:none;
-border-radius:12px;
+border-radius:18px;
+font-size:16px;
 font-weight:700;
 cursor:pointer;
 }
 
-.btn-next{
-background:linear-gradient(90deg,#00e5ff,#0077ff);
-color:white;
-}
-
 .btn-back{
-background:#555;
+background:#5f5f5f;
 color:white;
 }
 
-/* ===== QRIS ===== */
-
-.qris-box{
-text-align:center;
-padding:20px;
-border:2px dashed #00e5ff;
-border-radius:20px;
-}
-
-/* ===== SUMMARY ===== */
-
-.summary{
-background:rgba(255,255,255,0.08);
-padding:20px;
-border-radius:16px;
+.btn-next{
+background:linear-gradient(90deg,#00e5ff,#0066ff);
+color:white;
 }
 
 </style>
 </head>
-
 <body>
+
+<!-- LOADING -->
+<div class="loading-screen" id="loadingScreen">
+<div class="loader"></div>
+<div class="loading-text">MEMPROSES...</div>
+</div>
 
 <div class="container">
 
+<!-- HEADER -->
 <div class="header">
 <h1>JOGJA QRIStimewa RUN 2026</h1>
-<div class="timer-box">Sisa Waktu: <span id="countdown">10:00</span></div>
+<p>RUN • JOGJA • QRISTIMEWA • 2026</p>
+<div class="timer-box">
+Sisa Waktu Registrasi :
+<span id="countdown">10:00</span>
+</div>
 </div>
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
 
-<div class="input-group"><label>Nama Lengkap</label><input id="nama"></div>
+<img src="banner.png" class="banner">
+
+<div class="section-title">DATA DIRI PESERTA</div>
+
+<div class="input-group"><label>Nama Lengkap</label><input type="text" id="nama"></div>
 <div class="input-group"><label>Jenis Kelamin</label>
 <select id="gender">
 <option value="">Pilih</option>
 <option>Laki-Laki</option>
 <option>Perempuan</option>
-</select>
-</div>
+</select></div>
 
 <div class="input-group"><label>Tempat Lahir</label><input id="tempat"></div>
 <div class="input-group"><label>Tanggal Lahir</label><input type="date" id="tanggal"></div>
-<div class="input-group"><label>Umur</label><input id="umur"></div>
+<div class="input-group"><label>Umur</label><input type="number" id="umur"></div>
 <div class="input-group"><label>WhatsApp</label><input id="wa"></div>
 <div class="input-group"><label>Email</label><input id="email"></div>
 <div class="input-group"><label>Alamat</label><textarea id="alamat"></textarea></div>
@@ -201,7 +238,8 @@ border-radius:16px;
 <div class="input-group"><label>Nama BIB</label><input id="bib"></div>
 
 <div class="button-group">
-<button class="btn-next" onclick="showPage(2)">LANJUT</button>
+<button class="btn-back" disabled>Kembali</button>
+<button class="btn-next" id="next1" disabled>LANJUT</button>
 </div>
 
 </div>
@@ -209,12 +247,25 @@ border-radius:16px;
 <!-- PAGE 2 -->
 <div class="page" id="page2">
 
+<div class="section-title">CATEGORY EVENT</div>
+
 <div class="category-grid">
 
-<div class="category-card" onclick="selectCat(this,'5K - 150K')">5K</div>
-<div class="category-card" onclick="selectCat(this,'10K - 200K')">10K</div>
+<div class="category-card" data-value="5K FUN RUN - Rp150.000">
+<div class="category-distance">5K</div>
+<div class="category-title">FUN RUN</div>
+<div class="category-price">Rp150K</div>
+</div>
+
+<div class="category-card" data-value="10K PRO CHALLENGE - Rp200.000">
+<div class="category-distance">10K</div>
+<div class="category-title">PRO</div>
+<div class="category-price">Rp200K</div>
+</div>
 
 </div>
+
+<input type="hidden" id="category">
 
 <div class="input-group">
 <label>Size Jersey</label>
@@ -228,8 +279,8 @@ border-radius:16px;
 </div>
 
 <div class="button-group">
-<button class="btn-back" onclick="showPage(1)">Kembali</button>
-<button class="btn-next" onclick="goPayment()">Bayar</button>
+<button class="btn-back" onclick="prevPage(1)">Kembali</button>
+<button class="btn-next" id="next2" disabled>LANJUT</button>
 </div>
 
 </div>
@@ -237,37 +288,99 @@ border-radius:16px;
 <!-- PAGE 3 -->
 <div class="page" id="page3">
 
-<div class="summary" id="summary"></div>
+<div class="section-title">RINGKASAN</div>
+<div class="summary" id="summaryData"></div>
 
 <div class="qris-box">
-<h3>QRIS Pembayaran</h3>
-<img src="qris-bayar.png" width="200">
+<h2>QRIS</h2>
+<img src="qris-bayar.png">
+<div id="paymentTime">15:00</div>
 </div>
 
+<div class="upload-box">
+<input type="file" id="bukti">
+<input type="checkbox" id="agree"> Saya setuju
+</div>
+
+<div class="button-group">
+<button class="btn-back" onclick="prevPage(2)">Kembali</button>
+<button class="btn-next" id="payBtn" disabled>BAYAR</button>
+</div>
+
+</div>
+
+<!-- FAILED -->
+<div class="page" id="failedPage">
+<div class="failed-page">
+<h1>PENDING</h1>
+<p>Pembayaran gagal</p>
+</div>
 </div>
 
 </div>
 
 <script>
 
+/* NAVIGATION */
 function showPage(p){
 document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
 document.getElementById('page'+p).classList.add('active');
 }
 
-let category="";
+function prevPage(p){ showPage(p); }
 
-function selectCat(el,val){
-document.querySelectorAll('.category-card').forEach(e=>e.classList.remove('active'));
-el.classList.add('active');
-category=val;
+/* VALIDASI */
+const fields=['nama','gender','tempat','tanggal','umur','wa','email','alamat','kota','bib'];
+
+function validatePage1(){
+let ok=true;
+fields.forEach(id=>{
+if(document.getElementById(id).value==='') ok=false;
+});
+next1.disabled=!ok;
 }
 
-function goPayment(){
-document.getElementById('summary').innerHTML =
-"Nama: "+nama.value+"<br>Category: "+category;
+document.querySelectorAll('#page1 input,#page1 select,#page1 textarea')
+.forEach(el=>{
+el.addEventListener('input',validatePage1);
+});
+
+/* CATEGORY */
+document.querySelectorAll('.category-card').forEach(card=>{
+card.onclick=()=>{
+document.querySelectorAll('.category-card').forEach(c=>c.classList.remove('active'));
+card.classList.add('active');
+category.value=card.dataset.value;
+validatePage2();
+}
+});
+
+function validatePage2(){
+next2.disabled=!(category.value && size.value);
+}
+
+document.querySelectorAll('#size').forEach(el=>{
+el.addEventListener('change',validatePage2);
+});
+
+/* NEXT */
+next1.onclick=()=>showPage(2);
+next2.onclick=()=>{
+summaryData.innerHTML = "Nama: "+nama.value;
 showPage(3);
+};
+
+/* PAYMENT */
+function validatePayment(){
+payBtn.disabled = !(bukti.files.length && agree.checked);
 }
+
+document.querySelectorAll('#bukti,#agree')
+.forEach(el=>el.addEventListener('change',validatePayment));
+
+payBtn.onclick=()=>{
+showPage('failedPage');
+};
 
 /* TIMER */
 let t=600;

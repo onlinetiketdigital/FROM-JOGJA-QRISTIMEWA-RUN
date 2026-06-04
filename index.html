@@ -2,116 +2,1147 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FORM PENDAFTARAN SOEKARNO RUN 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JOGJA QRIStimewa RUN 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:linear-gradient(180deg,#d90429,#8d0018);padding:20px;color:#fff}
-.wrap{max-width:900px;margin:auto}
-.card{background:#fff;color:#222;border-radius:24px;padding:25px}
-h1{text-align:center;margin-bottom:20px}
-label{display:block;margin-top:12px;font-weight:bold}
-input,select,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:10px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.btn{margin-top:20px;width:100%;padding:15px;border:none;border-radius:12px;background:#d90429;color:#fff;font-weight:bold;cursor:pointer}
-#kolektif{display:none}
-.peserta{margin-top:15px;padding:15px;border:1px solid #ddd;border-radius:12px}
-#loader{display:none;position:fixed;inset:0;background:#000d;color:#fff;justify-content:center;align-items:center;flex-direction:column}
-.spin{width:90px;height:90px;border:8px solid #ffffff33;border-top:8px solid #fff;border-radius:50%;animation:r 1s linear infinite}
-@keyframes r{100%{transform:rotate(360deg)}}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+body{
+background:
+linear-gradient(
+135deg,
+#041C24,
+#00B894,
+#00CEC9
+);
+min-height:100vh;
+overflow-x:hidden;
+color:white;
+position:relative;
+}
+
+/* BACKGROUND EFFECT */
+
+body::before{
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#00B89440,transparent);
+top:-250px;
+left:-250px;
+animation:float1 12s infinite alternate ease-in-out;
+z-index:-2;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#00CEC940,transparent);
+bottom:-250px;
+right:-250px;
+animation:float2 14s infinite alternate ease-in-out;
+z-index:-2;
+}
+
+@keyframes float1{
+from{transform:translate(0,0);}
+to{transform:translate(60px,50px);}
+}
+
+@keyframes float2{
+from{transform:translate(0,0);}
+to{transform:translate(-70px,-40px);}
+}
+
+/* CONTAINER */
+
+.container{
+width:95%;
+max-width:960px;
+margin:25px auto;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+border-radius:34px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.12);
+
+box-shadow:
+0 10px 50px rgba(0,0,0,0.35),
+0 0 40px rgba(0,229,255,0.08);
+
+animation:fade .8s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* HEADER */
+
+.header{
+background:
+linear-gradient(135deg,#00cfff,#0077ff,#02142c);
+padding:38px 25px;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.header::before{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+background:radial-gradient(circle,#ffffff18,transparent);
+top:-250px;
+right:-150px;
+}
+
+.header h1{
+font-family:'Orbitron',sans-serif;
+font-size:38px;
+font-weight:900;
+letter-spacing:2px;
+
+text-shadow:
+0 4px 12px rgba(0,0,0,0.35);
+}
+
+.header p{
+margin-top:10px;
+font-size:15px;
+font-weight:600;
+letter-spacing:3px;
+}
+
+.timer-box{
+margin-top:22px;
+display:inline-block;
+padding:12px 24px;
+border-radius:18px;
+
+background:rgba(255,255,255,0.18);
+
+border:1px solid rgba(255,255,255,0.22);
+
+backdrop-filter:blur(8px);
+
+font-size:19px;
+font-weight:700;
+}
+
+/* PAGE */
+
+.page{
+display:none;
+padding:32px;
+animation:slide .5s ease;
+}
+
+.page.active{
+display:block;
+}
+
+@keyframes slide{
+from{
+opacity:0;
+transform:translateX(30px);
+}
+to{
+opacity:1;
+transform:translateX(0);
+}
+}
+
+/* BANNER */
+
+.banner{
+width:100%;
+border-radius:26px;
+margin-bottom:28px;
+
+box-shadow:
+0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* TITLE */
+
+.section-title{
+font-size:24px;
+font-weight:800;
+margin-bottom:22px;
+}
+
+/* INPUT */
+
+.input-group{
+margin-bottom:22px;
+}
+
+.input-group label{
+display:block;
+margin-bottom:9px;
+font-weight:600;
+font-size:15px;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select{
+width:100%;
+padding:17px;
+border-radius:18px;
+border:none;
+outline:none;
+
+background:rgba(255,255,255,0.12);
+
+border:2px solid transparent;
+
+color:white;
+font-size:15px;
+
+transition:.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus{
+
+border-color:#00e5ff;
+
+box-shadow:
+0 0 20px rgba(0,229,255,0.35);
+
+}
+
+.input-group input::placeholder,
+textarea::placeholder{
+color:#ddd;
+}
+
+textarea{
+resize:none;
+height:110px;
+}
+
+select option{
+color:black;
+}
+
+/* CATEGORY */
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:22px;
+margin-bottom:30px;
+}
+
+.category-card{
+padding:28px;
+border-radius:28px;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,0.10),
+rgba(255,255,255,0.05)
+);
+
+border:1px solid rgba(255,255,255,0.12);
+
+transition:.35s;
+cursor:pointer;
+}
+
+.category-card:hover{
+transform:translateY(-8px);
+
+border-color:#00e5ff;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.3);
+}
+
+.category-card.active{
+border:2px solid #00e5ff;
+
+background:
+linear-gradient(
+135deg,
+rgba(0,229,255,0.18),
+rgba(255,255,255,0.08)
+);
+}
+
+.category-distance{
+font-family:'Orbitron',sans-serif;
+font-size:56px;
+font-weight:900;
+color:#00e5ff;
+margin-bottom:10px;
+}
+
+.category-title{
+font-size:22px;
+font-weight:700;
+margin-bottom:8px;
+}
+
+.category-price{
+font-size:30px;
+font-weight:800;
+margin-top:14px;
+}
+
+/* BUTTON */
+
+.button-group{
+display:flex;
+gap:16px;
+margin-top:34px;
+}
+
+button{
+flex:1;
+padding:17px;
+border:none;
+border-radius:18px;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn-back{
+background:#5f5f5f;
+color:white;
+}
+
+.btn-next{
+background:
+linear-gradient(90deg,#00cfff,#0077ff);
+
+color:white;
+}
+
+button:hover{
+transform:translateY(-4px);
+
+box-shadow:
+0 10px 20px rgba(0,0,0,0.3);
+}
+
+button:disabled{
+opacity:.45;
+cursor:not-allowed;
+transform:none;
+box-shadow:none;
+}
+
+/* SUMMARY */
+
+.summary{
+background:rgba(255,255,255,0.08);
+padding:24px;
+border-radius:24px;
+margin-bottom:24px;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.summary-item{
+padding:14px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
+font-size:15px;
+}
+
+.summary-item:last-child{
+border:none;
+}
+
+.reg-number{
+margin-top:18px;
+padding:16px;
+
+background:
+linear-gradient(90deg,#00cfff,#0077ff);
+
+border-radius:16px;
+
+text-align:center;
+font-weight:700;
+font-size:18px;
+}
+
+/* QRIS */
+
+.qris-box{
+padding:28px;
+border-radius:28px;
+text-align:center;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,0.08),
+rgba(255,255,255,0.04)
+);
+
+border:2px dashed rgba(255,255,255,0.2);
+
+animation:pulse 2s infinite;
+
+margin-bottom:24px;
+}
+
+@keyframes pulse{
+0%{
+box-shadow:0 0 0 rgba(0,229,255,.2);
+}
+50%{
+box-shadow:0 0 35px rgba(0,229,255,.45);
+}
+100%{
+box-shadow:0 0 0 rgba(0,229,255,.2);
+}
+}
+
+.qris-box img{
+width:290px;
+max-width:100%;
+border-radius:20px;
+background:white;
+padding:12px;
+margin:22px 0;
+}
+
+.payment-warning{
+margin-top:18px;
+padding:16px;
+border-radius:16px;
+
+background:rgba(255,0,0,0.15);
+
+border:1px solid rgba(255,0,0,0.2);
+
+font-weight:600;
+}
+
+/* UPLOAD */
+
+.upload-box{
+padding:22px;
+border-radius:22px;
+background:rgba(255,255,255,0.07);
+margin-top:22px;
+}
+
+.checkbox{
+margin-top:22px;
+display:flex;
+align-items:flex-start;
+gap:12px;
+}
+
+.checkbox input{
+margin-top:4px;
+width:18px;
+height:18px;
+}
+
+/* LOADING */
+
+.loading-screen{
+position:fixed;
+inset:0;
+
+background:
+linear-gradient(135deg,#02142c,#0a4ea3,#00cfff);
+
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+z-index:9999;
+}
+
+.loader{
+width:120px;
+height:120px;
+border-radius:50%;
+
+border:10px solid rgba(255,255,255,.15);
+
+border-top:10px solid #fff;
+
+animation:rotate 1s linear infinite;
+
+margin-bottom:25px;
+}
+
+@keyframes rotate{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+.loading-text{
+font-size:30px;
+font-weight:800;
+font-family:'Orbitron',sans-serif;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+0%,100%{opacity:1;}
+50%{opacity:.45;}
+}
+
+/* FAILED */
+
+.failed-page{
+text-align:center;
+padding:60px 20px;
+}
+
+.failed-page h1{
+font-size:48px;
+color:#ff4b4b;
+margin-bottom:18px;
+font-family:'Orbitron',sans-serif;
+}
+
+.failed-page p{
+font-size:18px;
+}
+
+.redirect{
+margin-top:34px;
+font-size:18px;
+font-weight:700;
+color:#00e5ff;
+animation:blink 1s infinite;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.header h1{
+font-size:26px;
+}
+
+.page{
+padding:22px;
+}
+
+.button-group{
+flex-direction:column;
+}
+
+.category-distance{
+font-size:42px;
+}
+
+}
+
 </style>
 </head>
+
 <body>
-<div id="loader">
-<div class="spin"></div>
-<h2 style="margin-top:20px">Memverifikasi Pendaftaran...</h2>
-<p id="hitung">10</p>
+
+<!-- LOADING -->
+
+<div class="loading-screen" id="loadingScreen">
+
+<div class="loader"></div>
+
+<div class="loading-text">
+MEMPROSES...
 </div>
 
-<div class="wrap">
-<h1>SOEKARNO RUN 2026</h1>
-
-<div class="card">
-<label>Nama Lengkap</label><input>
-<label>NIK / Kartu Pelajar</label><input>
-
-<div class="grid">
-<div>
-<label>Tanggal Lahir</label><input type="date">
 </div>
-<div>
+
+<!-- CONTAINER -->
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h1>JOGJA QRIStimewa RUN 2026</h1>
+
+<p>RUN • JOGJA • QRISTIMEWA • 2026</p>
+
+<div class="timer-box">
+Sisa Waktu Registrasi :
+<span id="countdown">10:00</span>
+</div>
+
+</div>
+
+<!-- PAGE 1 -->
+
+<div class="page active" id="page1">
+
+<img src="banner.png" class="banner">
+
+<div class="section-title">
+DATA DIRI PESERTA
+</div>
+
+<div class="input-group">
+<label>Nama Lengkap</label>
+<input type="text" id="nama">
+</div>
+
+<div class="input-group">
 <label>Jenis Kelamin</label>
-<select><option>Laki-Laki</option><option>Perempuan</option></select>
-</div>
+<select id="gender">
+<option value="">Pilih Jenis Kelamin</option>
+<option>Laki-Laki</option>
+<option>Perempuan</option>
+</select>
 </div>
 
-<label>WhatsApp</label><input>
-<label>Email</label><input>
-<label>Kota / Kabupaten</label><input>
-<label>Alamat Lengkap</label><textarea></textarea>
+<div class="input-group">
+<label>Tempat Lahir</label>
+<input type="text" id="tempat">
+</div>
 
+<div class="input-group">
+<label>Tanggal Lahir</label>
+<input type="date" id="tanggal">
+</div>
+
+<div class="input-group">
+<label>Umur</label>
+<input type="number" id="umur">
+</div>
+
+<div class="input-group">
+<label>Nomor WhatsApp</label>
+<input type="tel" id="wa">
+</div>
+
+<div class="input-group">
+<label>Email Aktif</label>
+<input type="email" id="email">
+</div>
+
+<div class="input-group">
+<label>Alamat Lengkap</label>
+<textarea id="alamat"></textarea>
+</div>
+
+<div class="input-group">
+<label>Kota / Provinsi</label>
+<input type="text" id="kota">
+</div>
+
+<div class="input-group">
+<label>Nama BIB</label>
+<input type="text" id="bib">
+</div>
+
+<div class="button-group">
+<button class="btn-back" disabled>Kembali</button>
+<button class="btn-next" id="next1" disabled>
+LANJUT
+</button>
+</div>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="page" id="page2">
+
+<div class="section-title">
+CATEGORY EVENT
+</div>
+
+<div class="category-grid">
+
+<div class="category-card" data-value="5K FUN RUN - Rp150.000">
+
+<div class="category-distance">
+5K
+</div>
+
+<div class="category-title">
+FUN RUN EXPERIENCE
+</div>
+
+<div>
+KANTOR PERWAKILAN BANK INDONESIA DIY
+</div>
+
+<div class="category-price">
+Rp150K
+</div>
+
+</div>
+
+<div class="category-card" data-value="10K PRO CHALLENGE - Rp200.000">
+
+<div class="category-distance">
+10K
+</div>
+
+<div class="category-title">
+PRO CHALLENGE
+</div>
+
+<div>
+KANTOR PERWAKILAN BANK INDONESIA DIY
+</div>
+
+<div class="category-price">
+Rp200K
+</div>
+
+</div>
+
+</div>
+
+<input type="hidden" id="category">
+
+<img src="size-chart.jpg" class="banner">
+
+<div class="input-group">
 <label>Size Jersey</label>
-<select>
-<option>XS</option><option>S</option><option>M</option>
-<option>L</option><option>XL</option><option>XXL</option><option>3XL</option>
+<select id="size">
+<option value="">Pilih Size</option>
+<option>XS</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
 </select>
-
-<label>Nama BIB (Opsional)</label><input>
-<label>Komunitas (Opsional)</label><input>
-
-<label>Kontak Darurat</label><input>
-<label>Nomor Kontak Darurat</label><input>
-
-<label>Kategori</label>
-<select id="kategori" onchange="cekKategori()">
-<option value="individual">Individual - Rp100.000</option>
-<option value="kolektif">Kolektif 5 Orang - Rp430.000</option>
-</select>
-
-<div id="kolektif">
-<h3 style="margin-top:15px">Data Peserta Kolektif</h3>
-
-<div class="peserta">Peserta 2<input placeholder="Nama Peserta 2"></div>
-<div class="peserta">Peserta 3<input placeholder="Nama Peserta 3"></div>
-<div class="peserta">Peserta 4<input placeholder="Nama Peserta 4"></div>
-<div class="peserta">Peserta 5<input placeholder="Nama Peserta 5"></div>
 </div>
 
-<h3 style="margin-top:20px">Pembayaran</h3>
-<p>Simpan QRIS sebagai <b>qris.png</b> dalam folder yang sama.</p>
-<img src="qris.png" style="max-width:280px;width:100%;border:1px solid #ccc;border-radius:12px">
+<div class="input-group">
+<label>Komunitas Lari (Opsional)</label>
+<input type="text" id="komunitas">
+</div>
 
+<div class="button-group">
+<button class="btn-back" onclick="prevPage(1)">
+Kembali
+</button>
+
+<button class="btn-next" id="next2" disabled>
+LANJUT PEMBAYARAN
+</button>
+</div>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page" id="page3">
+
+<div class="section-title">
+RINGKASAN DATA PESERTA
+</div>
+
+<div class="summary" id="summaryData"></div>
+
+<div class="qris-box">
+
+<h2>QRIS PEMBAYARAN</h2>
+
+<img src="qris-bayar.png">
+
+<p>
+Silahkan lakukan pembayaran sesuai category yang dipilih.
+</p>
+
+<div class="payment-warning">
+LAKUKAN PEMBAYARAN SEBELUM QR PEMBAYARAN LIMIT
+</div>
+
+<div style="margin-top:20px;font-size:18px;font-weight:700;">
+Waktu Pembayaran :
+<span id="paymentTime">15:00</span>
+</div>
+
+</div>
+
+<div class="upload-box">
+
+<div class="input-group">
 <label>Upload Bukti Pembayaran</label>
-<input type="file">
+<input type="file" id="bukti" accept="image/*,.pdf">
+</div>
 
-<label style="margin-top:15px">
-<input type="checkbox" style="width:auto"> Saya menyatakan data yang saya isi benar.
+<div class="checkbox">
+<input type="checkbox" id="agree">
+
+<label>
+Saya telah mengisi data diri dengan benar dan lengkap.
 </label>
 
-<button class="btn" onclick="kirim()">KIRIM PENDAFTARAN</button>
+</div>
 
 </div>
+
+<div class="button-group">
+
+<button class="btn-back" onclick="prevPage(2)">
+Kembali
+</button>
+
+<button class="btn-next" id="payBtn" disabled>
+SAYA SUDAH BAYAR
+</button>
+
+</div>
+
+</div>
+
+<!-- FAILED -->
+
+<div class="page" id="failedPage">
+
+<div class="failed-page">
+
+<h1>PEMBAYARAN FAILED</h1>
+
+<p>
+Pembayaran anda gagal diverifikasi sistem.
+</p>
+
+<div class="redirect">
+MENGALIHKAN KE KONFIRMASI PEMBAYARAN
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <script>
-function cekKategori(){
-document.getElementById('kolektif').style.display=
-document.getElementById('kategori').value==='kolektif'?'block':'none';
+
+let registrationNumber =
+'RB-'+Math.floor(Math.random()*999999);
+
+function showPage(page){
+
+document.querySelectorAll('.page')
+.forEach(p=>p.classList.remove('active'));
+
+document.getElementById('page'+page)
+.classList.add('active');
+
 }
 
-function kirim(){
-document.getElementById('loader').style.display='flex';
-let s=10;
-hitung.innerText=s;
-let t=setInterval(()=>{
-s--;
-hitung.innerText=s;
-if(s<=0){
-clearInterval(t);
-location.href='https://onlinetiketdigital.github.io/PEMBAYARAN-SUKSES-/';
+function prevPage(page){
+showPage(page);
 }
+
+/* PAGE 1 */
+
+const page1Fields = [
+'nama',
+'gender',
+'tempat',
+'tanggal',
+'umur',
+'wa',
+'email',
+'alamat',
+'kota',
+'bib'
+];
+
+function validatePage1(){
+
+let valid = true;
+
+page1Fields.forEach(id=>{
+
+const val =
+document.getElementById(id).value.trim();
+
+if(val === ''){
+valid = false;
+}
+
+});
+
+document.getElementById('next1')
+.disabled = !valid;
+
+}
+
+document.querySelectorAll('#page1 input,#page1 textarea,#page1 select')
+.forEach(el=>{
+
+el.addEventListener('input',validatePage1);
+
+el.addEventListener('change',validatePage1);
+
+});
+
+document.getElementById('next1')
+.addEventListener('click',()=>{
+
+showPage(2);
+
+});
+
+/* CATEGORY */
+
+const categoryCards =
+document.querySelectorAll('.category-card');
+
+categoryCards.forEach(card=>{
+
+card.addEventListener('click',()=>{
+
+categoryCards.forEach(c=>
+c.classList.remove('active')
+);
+
+card.classList.add('active');
+
+document.getElementById('category').value =
+card.dataset.value;
+
+validatePage2();
+
+});
+
+});
+
+function validatePage2(){
+
+const category =
+document.getElementById('category').value;
+
+const size =
+document.getElementById('size').value;
+
+document.getElementById('next2').disabled =
+!(category && size);
+
+}
+
+document.querySelectorAll('#page2 input,#page2 select')
+.forEach(el=>{
+
+el.addEventListener('input',validatePage2);
+
+el.addEventListener('change',validatePage2);
+
+});
+
+document.getElementById('next2')
+.addEventListener('click',()=>{
+
+generateSummary();
+
+showPage(3);
+
+startPaymentTimer();
+
+});
+
+/* SUMMARY */
+
+function generateSummary(){
+
+document.getElementById('summaryData').innerHTML = `
+
+<div class="summary-item">
+<b>No Registrasi :</b>
+${registrationNumber}
+</div>
+
+<div class="summary-item">
+<b>Nama :</b>
+${document.getElementById('nama').value}
+</div>
+
+<div class="summary-item">
+<b>Jenis Kelamin :</b>
+${document.getElementById('gender').value}
+</div>
+
+<div class="summary-item">
+<b>WhatsApp :</b>
+${document.getElementById('wa').value}
+</div>
+
+<div class="summary-item">
+<b>Email :</b>
+${document.getElementById('email').value}
+</div>
+
+<div class="summary-item">
+<b>Category :</b>
+${document.getElementById('category').value}
+</div>
+
+<div class="summary-item">
+<b>Size Jersey :</b>
+${document.getElementById('size').value}
+</div>
+
+<div class="reg-number">
+NO REGISTRASI :
+${registrationNumber}
+</div>
+
+`;
+
+}
+
+/* PAYMENT */
+
+function validatePayment(){
+
+const bukti =
+document.getElementById('bukti').files.length > 0;
+
+const agree =
+document.getElementById('agree').checked;
+
+document.getElementById('payBtn').disabled =
+!(bukti && agree);
+
+}
+
+document.querySelectorAll('#page3 input')
+.forEach(el=>{
+
+el.addEventListener('change',validatePayment);
+
+});
+
+document.getElementById('payBtn')
+.addEventListener('click',()=>{
+
+document.getElementById('loadingScreen')
+.style.display='flex';
+
+setTimeout(()=>{
+
+document.getElementById('loadingScreen')
+.style.display='none';
+
+showFailed();
+
+},5000);
+
+});
+
+/* FAILED */
+
+function showFailed(){
+
+document.querySelectorAll('.page')
+.forEach(p=>p.classList.remove('active'));
+
+document.getElementById('failedPage')
+.classList.add('active');
+
+setTimeout(()=>{
+
+window.location.href =
+'https://ticketdigitalstore.github.io/REGISTRASI-PENDAFTARAN/';
+
+},8000);
+
+}
+
+/* MAIN TIMER */
+
+let duration = 600;
+
+const countdown =
+document.getElementById('countdown');
+
+const timer = setInterval(()=>{
+
+let minutes = Math.floor(duration/60);
+
+let seconds = duration%60;
+
+countdown.innerHTML =
+`${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+
+if(duration <= 0){
+
+clearInterval(timer);
+
+showFailed();
+
+}
+
+duration--;
+
 },1000);
+
+/* PAYMENT TIMER */
+
+function startPaymentTimer(){
+
+let payTime = 900;
+
+const paymentTimer =
+setInterval(()=>{
+
+let minutes = Math.floor(payTime/60);
+
+let seconds = payTime%60;
+
+document.getElementById('paymentTime')
+.innerHTML =
+`${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+
+if(payTime <= 0){
+
+clearInterval(paymentTimer);
+
+showFailed();
+
 }
+
+payTime--;
+
+},1000);
+
+}
+
 </script>
+
 </body>
 </html>
